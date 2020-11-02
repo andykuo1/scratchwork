@@ -15,8 +15,8 @@ touch .gitignore
 ## Step 3 - Install the essentials
 
 ```
-npm install --save-dev webpack webpack-cli @babel/core @babel/preset-react babel-loader
-npm install --save react react-dom
+npm install webpack webpack-cli @babel/core @babel/preset-react babel-loader --save-dev
+npm install react react-dom --save
 ```
 
 ## Step 4 - Create the configs
@@ -91,3 +91,6 @@ npx webpack --mode production
 
 ## Step 7 - Celebrate
 Yep! That's it!
+
+## Step 8 - Realize there is more
+...Yeah, there's more. Refer to other features' install guides for details.
