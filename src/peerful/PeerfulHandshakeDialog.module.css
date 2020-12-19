@@ -1,0 +1,78 @@
+.container {
+    background: slategray;
+    width: 20rem;
+}
+
+.container > nav {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+nav > button:disabled {
+    opacity: 0;
+}
+
+nav > button.pending:disabled {
+    opacity: 0.3;
+}
+
+.cancel {
+    margin: auto;
+}
+
+.pillContainer {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+}
+
+.pillContainer > * {
+    flex: 1;
+}
+
+.redPill {
+    color: red;
+}
+
+.bluePill {
+    color: blue;
+}
+
+.stageList {
+    position: relative;
+    height: 10rem;
+    overflow: hidden;
+}
+
+.stageContainer {
+    position: absolute;
+    width: 100%;
+    height: 10rem;
+    overflow-y: auto;
+    background: dodgerblue;
+    left: 100%;
+}
+
+.stageContainer:not(.prev):not(.focus):not(.next) {
+    transition: none;
+}
+
+.stageContainer.prev,
+.stageContainer.next,
+.stageContainer.focus {
+    transition: left 0.3s ease;
+}
+
+.stageContainer.prev {
+    left: -100%;
+}
+
+.stageContainer.next {
+    left: 100%;
+}
+
+.stageContainer.focus {
+    left: 0;
+}

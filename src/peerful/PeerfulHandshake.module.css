@@ -1,0 +1,12 @@
+.container {
+    background-color: dodgerblue;
+}
+
+.container > article {
+    outline: 1px solid black;
+}
+
+.container section {
+    outline: 1px solid black;
+    margin: 1rem;
+}
