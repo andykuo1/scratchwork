@@ -1,9 +1,15 @@
 const path = require('path');
+const webpack = require('webpack');
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 /** @type { import('webpack').Configuration } */
-module.exports = {
+module.exports = (_, { mode }) => ({
+    output: {
+        path: path.resolve(__dirname, 'dist'),
+        publicPath: '',
+    },
     module: {
         rules: [
             {
@@ -14,7 +20,9 @@ module.exports = {
             {
                 test: /\.css$/,
                 use: [
-                    MiniCssExtractPlugin.loader,
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                    },
                     {
                         loader: 'css-loader',
                         options: {
@@ -26,6 +34,10 @@ module.exports = {
             {
                 test: /\.svg$/,
                 use: ['@svgr/webpack']
+            },
+            {
+                test: /\.(png|jpg|gif)$/,
+                type: 'asset'
             }
         ]
     },
@@ -39,6 +51,8 @@ module.exports = {
         open: true
     },
     plugins: [
-        new MiniCssExtractPlugin()
+        new webpack.ProgressPlugin(),
+        new MiniCssExtractPlugin(),
+        new CleanWebpackPlugin(),
     ]
-};
+});
